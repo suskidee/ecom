@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}shopify-{{product.name}}{% endblock %}
+
+{% block intro_title %}{{product.name}} {% endblock %}
+
+{% block content %}
+  <div class="container py-5">
+    <div class="card mb-3"  >
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="{{product.image.url}}" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text">{{product.description}}
+            {% if product.on_promo %}
+              <p class="card-text"><small class="text-muted"> <strike>₦{{ product.price }}</strike>
+                                            <br>
+                                            <b> ₦{{product.promo_price}}</b></small></p>
+            {% else %}
+            <p class="card-text"><small class="text-muted">₦{{ product.price }}</small></p>
+             {% endif %}
+  
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <center>
+    <a href="{% url 'home' %}">home</a>
+    </center>
+  </div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block intro_title %} register {% endblock %}
+
+{% block content %}
+  <div class="container py-5">
+    <div class="row">
+      <center>
+        <div class="col-md-6  ">
+          <br>
+          <br>
+          <form method="POST" action="{% url 'register' %}">
+            {% csrf_token %}
+            {{form.as_p}}
+            <br>
+            <button class="btn btn-secondary">Register</button>
+          </form>
+          <br>
+          <br>
+          <a href="{% url 'login' %}">Already have an account? <br>login here</a>
+
+        </div>
+      </center>
+    </div>
+  </div>
+{% endblock %}
